@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инфографика: Стратегия 'БиоАрктика-2050'</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 
+    Narrative & Structure Plan:
+    1.  Header: Introduce the "BioArctic-2050" concept with a strong title and a brief, impactful mission statement.
+    2.  Two-Tier Technology Paradigm: Use two distinct cards to explain the core technological levels (High TRL vs. Low TRL) that underpin the strategy.
+    3.  Technology Readiness Levels (TRL): A comparative bar chart to visualize the gap between ready-to-implement technologies and futuristic concepts. This directly addresses the core challenge identified in the analysis.
+    4.  Phased Implementation Roadmap: A timeline created with HTML/CSS to clearly show the proposed stages (2026-2030 "Demo-1" and 2030-2035 "BioDome-Lite"), making the long-term plan digestible.
+    5.  Architectural Concepts Comparison: A radar chart to compare the different architectural typologies (Monolithic Dome vs. Modular Cluster vs. GIAC) across key criteria like scalability, resilience, and cost.
+    6.  Key Stakeholders & Resources: A donut chart to visually represent the required resource allocation for the initial phase (Infrastructure, Personnel, R&D, etc.).
+    7.  Strategic Impact & Potential: A section with large, bold numbers and icons to highlight the project's key outcomes (export potential, dual-use applications).
+    8.  Footer: Concluding remarks and project branding.
+
+    Visualization Choices:
+    -   Technology Readiness Levels: Goal: Compare. Chosen Visualization: Bar Chart. Justification: A bar chart is ideal for directly comparing the readiness levels (TRL scores) of multiple distinct technologies, clearly highlighting the disparity between mature and experimental systems. Implemented with Chart.js/Canvas. NO SVG.
+    -   Phased Implementation: Goal: Show Change/Organize. Chosen Visualization: HTML/CSS Timeline. Justification: A visual timeline is the most intuitive way to represent a chronological process, breaking down the complex, long-term strategy into clear, sequential stages. Implemented with structured HTML/CSS. NO SVG, NO MERMAID JS.
+    -   Architectural Concepts: Goal: Compare. Chosen Visualization: Radar Chart. Justification: A radar chart is perfect for comparing multiple options (architectural types) across multiple quantitative or qualitative criteria (efficiency, scalability, etc.). It provides a quick visual summary of the strengths and weaknesses of each approach. Implemented with Chart.js/Canvas. NO SVG.
+    -   Resource Allocation: Goal: Inform/Compare (Composition). Chosen Visualization: Donut Chart. Justification: A donut chart effectively shows the composition of a whole, making it easy to understand the proportional distribution of required resources for the initial project phase. Implemented with Chart.js/Canvas. NO SVG.
+    -   Strategic Impact: Goal: Inform. Chosen Visualization: Big Numbers with Icons. Justification: Large, bold typography is the most direct and impactful way to convey key performance indicators and standout statistics, grabbing the user's attention. Implemented with HTML/CSS and Unicode characters. NO SVG.
+
+    Color Palette Selection:
+    -   Chosen Palette: Brilliant Blues.
+    -   HEX Codes: #003F5C, #374C80, #7A5195, #BC5090, #EF5675, #FF764A, #FFA600.
+    -   Backgrounds: A very light gray (#F7F9FC) for the body and white (#FFFFFF) for cards to ensure content pops.
+    -   Text: Dark blue/gray (#002A3E) for high contrast and readability.
+    -   Justification: This palette is vibrant, professional, and offers a wide range of distinct colors, which is excellent for differentiating data series in charts. The high contrast ensures accessibility and aligns with the modern, tech-focused theme of the "BioArctic-2050" project.
+
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7F9FC;
+            color: #002A3E;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 40vh;
+            max-height: 400px;
+        }
+        .kpi-value {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #EF5675;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#003F5C] mb-2">БиоАрктика-2050</h1>
+            <p class="text-lg md:text-xl text-[#374C80]">Стратегия создания самодостаточных поселений нового поколения в Арктической зоне РФ</p>
+        </header>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-4 text-center">Двухуровневая технологическая парадигма</h2>
+                <p class="text-center text-[#374C80] mb-6">Концепция основана на двух технологических уровнях: уже готовых к внедрению решениях и прорывных технологиях будущего, обеспечивающих глобальное лидерство.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border-l-4 border-[#FFA600] p-4 bg-gray-50 rounded-r-lg">
+                        <h3 class="text-xl font-semibold text-[#003F5C] mb-2">Уровень 1: Базовые технологии (TRL 5-7)</h3>
+                        <p class="text-[#374C80]">Технологии высокой готовности, готовые к пилотному внедрению в 2026-2030 гг. Они формируют основу для первого этапа освоения, минимизируя зависимость от "северного завоза".</p>
+                        <ul class="list-disc list-inside mt-3 text-[#374C80] space-y-1">
+                            <li>Высокопрочный серобетон</li>
+                            <li>Биокомпозиты из мицелия и торфа</li>
+                            <li>Модульные строительные системы</li>
+                        </ul>
+                    </div>
+                    <div class="border-l-4 border-[#BC5090] p-4 bg-gray-50 rounded-r-lg">
+                        <h3 class="text-xl font-semibold text-[#003F5C] mb-2">Уровень 2: Прорывные технологии (TRL 2-4)</h3>
+                        <p class="text-[#374C80]">Фундаментальные исследования, формирующие технологический суверенитет России к 2035-2050 гг. Эти системы лягут в основу полномасштабных "живых" куполов.</p>
+                        <ul class="list-disc list-inside mt-3 text-[#374C80] space-y-1">
+                            <li>Биогенеративный каркас (СДМК)</li>
+                            <li>Адаптивная оболочка (АКБО)</li>
+                            <li>Когнитивная среда (BioAI)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-2 text-center">Карта технологической готовности (TRL)</h2>
+                <p class="text-center text-[#374C80] mb-6">Сравнение уровней готовности ключевых технологий выявляет стратегический разрыв, который необходимо преодолеть для реализации полномасштабного проекта BioDome-001.</p>
+                <div class="chart-container h-[50vh] max-h-[450px]">
+                    <canvas id="trlChart"></canvas>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-6 text-center">Фазированный сценарий реализации</h2>
+                <div class="relative">
+                    <div class="border-l-4 border-[#7A5195] absolute h-full top-0 left-4"></div>
+                    <div class="mb-8 pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#7A5195] rounded-full -left-4 border-4 border-white"></div>
+                        <p class="text-lg font-semibold text-[#7A5195]">Этап 1А: 2026–2030 гг.</p>
+                        <h3 class="text-xl font-bold text-[#003F5C]">Проект «БиоАрктика-Демо-1»</h3>
+                        <p class="text-[#374C80]">Создание демонстрационного модуля на основе технологий высокой готовности (TRL 5-7). Цель — отработка производственных циклов, логистики и сбор данных по эксплуатации новых материалов в реальных арктических условиях.</p>
+                    </div>
+                    <div class="mb-8 pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#EF5675] rounded-full -left-4 border-4 border-white"></div>
+                        <p class="text-lg font-semibold text-[#EF5675]">Этап 1Б: 2030–2035 гг.</p>
+                        <h3 class="text-xl font-bold text-[#003F5C]">Проект «BioDome-001-Lite»</h3>
+                        <p class="text-[#374C80]">Возведение малого архитектурного прототипа (секции купола) для полевых испытаний отдельных прорывных систем (фрагменты АКБО, прототип «Микробиом-Ядра») и подготовки к полномасштабному строительству.</p>
+                    </div>
+                     <div class="pl-12 relative">
+                        <div class="absolute w-8 h-8 bg-[#FFA600] rounded-full -left-4 border-4 border-white"></div>
+                        <p class="text-lg font-semibold text-[#FFA600]">После 2035 г.</p>
+                        <h3 class="text-xl font-bold text-[#003F5C]">Полномасштабный BioDome-001</h3>
+                        <p class="text-[#374C80]">Запуск полнофункционального, автономного жилого кластера на 50-100 человек с полной интеграцией всех прорывных технологий, включая BioAI и биогенеративный каркас.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-2 text-center">Сравнение архитектурных типологий</h2>
+                <p class="text-center text-[#374C80] mb-6">Анализ показывает, что гибридная модель «Гео-интегрированных адаптивных кластеров» (ГИАК) является наиболее сбалансированным решением, превосходя монолитный купол и простые модули по ключевым параметрам.</p>
+                <div class="chart-container h-[50vh] max-h-[450px]">
+                    <canvas id="architectureChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-4 text-center">Ресурсы для Этапа 1А</h2>
+                <p class="text-center text-[#374C80] mb-6">Успех первого этапа зависит от концентрации на ключевых направлениях.</p>
+                <div class="chart-container h-[40vh] max-h-[300px]">
+                    <canvas id="resourcesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="md:col-span-1 lg:col-span-2 bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-6 text-center">Стратегический потенциал</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+                    <div>
+                        <p class="kpi-value">50+</p>
+                        <p class="text-lg font-semibold text-[#003F5C]">млрд руб/год</p>
+                        <p class="text-[#374C80]">Экспортный потенциал технологий к 2050 году.</p>
+                    </div>
+                    <div>
+                        <p class="text-5xl mb-2">🛰️</p>
+                        <p class="text-lg font-semibold text-[#003F5C]">Двойное назначение</p>
+                        <p class="text-[#374C80]">Технологии применимы для освоения космоса (Луна, Марс) и нужд МЧС.</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="text-center mt-12 text-[#374C80]">
+            <p>Аналитическая инфографика на основе концепции «БиоАрктика-2050»</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const commonTooltipOptions = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const trlData = {
+            labels: [
+                'Модульные системы', 
+                'Серобетон', 
+                'Биокомпозиты (база)', 
+                'BioAI и Когнитивная среда',
+                'Адаптивная оболочка (АКБО)', 
+                'Синтетический Крио-Мицелий (СДМК)'
+            ].map(wrapLabel),
+            datasets: [{
+                label: 'Уровень готовности технологии (TRL)',
+                data: [8, 7, 6, 4, 3.5, 3],
+                backgroundColor: [
+                    '#FFA600', '#FF764A', '#EF5675', 
+                    '#BC5090', '#7A5195', '#374C80'
+                ],
+                borderColor: '#FFFFFF',
+                borderWidth: 2
+            }]
+        };
+
+        new Chart(document.getElementById('trlChart'), {
+            type: 'bar',
+            data: trlData,
+            options: {
+                ...commonTooltipOptions,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 9,
+                        title: { display: true, text: 'TRL (1-9)' }
+                    }
+                },
+                plugins: {
+                    ...commonTooltipOptions.plugins,
+                    legend: { display: false }
+                }
+            }
+        });
+        
+        const architectureData = {
+            labels: ['Энерго-эффективность', 'Масштабируемость', 'Отказо-устойчивость', 'Психологический комфорт', ['Сложность', 'реализации (инверс.)'], 'Устойчивость к мерзлоте'],
+            datasets: [
+                {
+                    label: 'Монолитный купол',
+                    data: [9, 2, 2, 5, 2, 5],
+                    borderColor: '#EF5675',
+                    backgroundColor: 'rgba(239, 86, 117, 0.2)',
+                    pointBackgroundColor: '#EF5675',
+                },
+                {
+                    label: 'Модульный кластер',
+                    data: [5, 9, 8, 5, 8, 8],
+                    borderColor: '#FFA600',
+                    backgroundColor: 'rgba(255, 166, 0, 0.2)',
+                    pointBackgroundColor: '#FFA600',
+                },
+                {
+                    label: 'ГИАК (гибрид)',
+                    data: [8, 8, 9, 8, 5, 9],
+                    borderColor: '#7A5195',
+                    backgroundColor: 'rgba(122, 81, 149, 0.2)',
+                    pointBackgroundColor: '#7A5195',
+                }
+            ]
+        };
+
+        new Chart(document.getElementById('architectureChart'), {
+            type: 'radar',
+            data: architectureData,
+            options: {
+                ...commonTooltipOptions,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 63, 92, 0.1)' },
+                        grid: { color: 'rgba(0, 63, 92, 0.1)' },
+                        pointLabels: { font: { size: 12 } },
+                        suggestedMin: 0,
+                        suggestedMax: 10
+                    }
+                },
+                plugins: {
+                     ...commonTooltipOptions.plugins,
+                    legend: { position: 'top' }
+                }
+            }
+        });
+
+        const resourcesData = {
+            labels: ['Инфраструктура', 'Кадры', 'Нормативная база', 'НИОКР'],
+            datasets: [{
+                label: 'Распределение ресурсов',
+                data: [40, 20, 15, 25],
+                backgroundColor: ['#003F5C', '#7A5195', '#EF5675', '#FFA600'],
+                hoverOffset: 4
+            }]
+        };
+
+        new Chart(document.getElementById('resourcesChart'), {
+            type: 'doughnut',
+            data: resourcesData,
+            options: {
+                ...commonTooltipOptions,
+                maintainAspectRatio: false,
+                plugins: {
+                    ...commonTooltipOptions.plugins,
+                    legend: {
+                        position: 'bottom',
+                        labels: { boxWidth: 20 }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
